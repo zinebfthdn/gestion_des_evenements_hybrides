@@ -128,16 +128,19 @@ CRUD complet pour les événements :
 
 #### `authMiddleware.js`
 - `protect` : vérifie le token JWT et authentifie l’utilisateur  
-- `authorize` : autorise selon le rôle (organisateur, participant)  
+- `authorize` : autorise selon le rôle (organisateur, participant)
+  
   ![Screenshot 1](screenshots/7.png)
 
 ---
 
 ### `models/`
 - `Event.js` : Schéma d’événement
+  
   ![Screenshot 1](screenshots/8.png)
 
-- `Participant.js` : Schéma de participant  
+- `Participant.js` : Schéma de participant
+  
   ![Screenshot 1](screenshots/9.png)
 
 Avant sauvegarde (`pre save`) : hashage du mot de passe avec **bcrypt**  
@@ -147,24 +150,29 @@ Méthode `comparePassword` : compare le mot de passe entré et celui stocké.
 
 ### `routes/`
 - `authRoutes.js` : inscription & connexion (`/register`, `/login`)
+  
     ![Screenshot 1](screenshots/10.png)
  
 - `eventRoutes.js` : routes CRUD des événements
+  
     ![Screenshot 1](screenshots/11.png)
 
-- `participantRoutes.js` : récupération des participants d’un événement  
+- `participantRoutes.js` : récupération des participants d’un événement
+  
     ![Screenshot 1](screenshots/12.png)
 
 ---
 
 ### `utils/db.js`
 Contient la logique de connexion à **MongoDB**.
+
     ![Screenshot 1](screenshots/13.png)
 
 ---
 
 ### `.env`
 Stocke les variables d’environnement : URL de la base de données, clé JWT, etc.
+
     ![Screenshot 1](screenshots/14.png)
 
 ---
@@ -172,7 +180,8 @@ Stocke les variables d’environnement : URL de la base de données, clé JWT, e
 ### `server.js`
 - Point d’entrée du backend  
 - Configure **Express**, **CORS**, **dotenv**, et **body-parser**  
-- Connecte la base de données et lie les routes  
+- Connecte la base de données et lie les routes
+  
     ![Screenshot 1](screenshots/15.png)
 
 ---
@@ -181,28 +190,36 @@ Stocke les variables d’environnement : URL de la base de données, clé JWT, e
 
 ### 🔐 Authentification
 - `POST /auth/register` : inscription
+  
       ![Screenshot 1](screenshots/16.png)
 
-- `POST /auth/login` : connexion  
+- `POST /auth/login` : connexion
+    
     ![Screenshot 1](screenshots/17.png)
 
 ### 📅 Événements
 - `POST /events` : créer un événement
-      ![Screenshot 1](screenshots/18.png)
+  
+    ![Screenshot 1](screenshots/18.png)
+  
     ![Screenshot 1](screenshots/19.png)
 
 
 - `GET /events` : liste complète
-        ![Screenshot 1](screenshots/21.png)
+  
+    ![Screenshot 1](screenshots/21.png)
 
 - `PUT /events/:id` : modifier
-        ![Screenshot 1](screenshots/22.png)
+  
+    ![Screenshot 1](screenshots/22.png)
 
-- `DELETE /events/:id` : supprimer  
-      ![Screenshot 1](screenshots/23.png)
+- `DELETE /events/:id` : supprimer
+  
+    ![Screenshot 1](screenshots/23.png)
 
 > ⚠️ Si un **participant** tente d’accéder à une route d’organisateur, la requête est refusée.
-      ![Screenshot 1](screenshots/20.png)
+
+    ![Screenshot 1](screenshots/20.png)
 
 
 
@@ -258,24 +275,30 @@ Stocke les variables d’environnement : URL de la base de données, clé JWT, e
 
 ### Fichiers :
 - `Dockerfile` Backend
-        ![Screenshot 1](screenshots/30.png)
+  
+    ![Screenshot 1](screenshots/30.png)
 
 - `Dockerfile` Frontend
-        ![Screenshot 1](screenshots/31.png)
+  
+    ![Screenshot 1](screenshots/31.png)
 
-- `docker-compose.yml`  
-      ![Screenshot 1](screenshots/32.png)
+- `docker-compose.yml`
+  
+    ![Screenshot 1](screenshots/32.png)
 
 ### Étapes :
 1. **Création des containers**
-         ![Screenshot 1](screenshots/33.png)
+
+     ![Screenshot 1](screenshots/33.png)
 
 3. **Lancement des containers**
-            ![Screenshot 1](screenshots/34.png)
-            ![Screenshot 1](screenshots/35.png)
+
+     ![Screenshot 1](screenshots/34.png)
+
+     ![Screenshot 1](screenshots/35.png)
 
 5. **Connexion à la base de données**
-            ![Screenshot 1](screenshots/36.png)
+     ![Screenshot 1](screenshots/36.png)
 
 7. **Vérification du frontend :**
    ```bash
